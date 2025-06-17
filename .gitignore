@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+rcedit-x64.exe
