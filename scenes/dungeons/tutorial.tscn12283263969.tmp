@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvnndjm0mhi4r"]
+
+[ext_resource type="Script" uid="uid://b8a0vjd21u5x0" path="res://scripts/tutorial.gd" id="1_3nl3d"]
+[ext_resource type="PackedScene" uid="uid://dl88qqi5kl3yi" path="res://scenes/camera.tscn" id="2_sfly1"]
+[ext_resource type="Texture2D" uid="uid://bfikxsek46osj" path="res://assets/backgrounds/slums.png" id="4_hni1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hni1e"]
+size = Vector2(2367, 711)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of2fq"]
+size = Vector2(2548, 748.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xn2j3"]
+size = Vector2(5763, 205)
+
+[node name="tutorial_dungeon" type="Node2D"]
+script = ExtResource("1_3nl3d")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 11520.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hni1e")
+stretch_mode = 2
+
+[node name="Walls" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1182.5, 356.5)
+shape = SubResource("RectangleShape2D_hni1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(3898, 338)
+shape = SubResource("RectangleShape2D_of2fq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2881.5, 1185)
+shape = SubResource("RectangleShape2D_xn2j3")
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2(120, 504)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="Entities"]
+
+[node name="Marker2D2" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+position = Vector2(1981, 202)
+
+[node name="Marker2D3" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+position = Vector2(3425, 314)
+
+[node name="HeroSpawn" type="Marker2D" parent="Entities"]
+position = Vector2(499, 294)
+
+[node name="Camera" parent="." instance=ExtResource("2_sfly1")]
+position = Vector2(581, 314)
