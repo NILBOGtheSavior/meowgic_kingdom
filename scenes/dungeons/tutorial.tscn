@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvnndjm0mhi4r"]
+
+[ext_resource type="Script" uid="uid://b8a0vjd21u5x0" path="res://scripts/tutorial.gd" id="1_3nl3d"]
+[ext_resource type="PackedScene" uid="uid://cckm72f74danp" path="res://scenes/characters/hero_cat.tscn" id="1_qr36t"]
+[ext_resource type="PackedScene" uid="uid://bww7kvub3xrl2" path="res://scenes/dungeons/base_room.tscn" id="2_hni1e"]
+[ext_resource type="PackedScene" uid="uid://dl88qqi5kl3yi" path="res://scenes/camera.tscn" id="2_sfly1"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hni1e"]
+scenes/1/scene = ExtResource("2_hni1e")
+
+[sub_resource type="TileSet" id="TileSet_of2fq"]
+sources/0 = SubResource("TileSetScenesCollectionSource_hni1e")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hni1e"]
+size = Vector2(3293, 371)
+
+[node name="tutorial_dungeon" type="Node2D"]
+script = ExtResource("1_3nl3d")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 35, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 102, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 169, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0)
+tile_set = SubResource("TileSet_of2fq")
+
+[node name="Area2D" type="Area2D" parent="TileMapLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Area2D"]
+position = Vector2(1642.5, 177.5)
+shape = SubResource("RectangleShape2D_hni1e")
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2(120, 504)
+metadata/_edit_group_ = true
+
+[node name="HeroCat" parent="Entities" instance=ExtResource("1_qr36t")]
+
+[node name="EnemySpawnPoints" type="Node2D" parent="Entities"]
+
+[node name="Marker2D" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+
+[node name="Camera" parent="." instance=ExtResource("2_sfly1")]
+position = Vector2(581, 314)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(225, 477)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(1696, 487)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(2966, 501)

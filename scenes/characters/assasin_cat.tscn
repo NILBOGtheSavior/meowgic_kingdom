@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://hpe65axji7dt"]
 
-[ext_resource type="Texture2D" uid="uid://dma8soeyqrxje" path="res://assets/enemy_cat_template.png" id="1_35nsm"]
+[ext_resource type="Texture2D" uid="uid://dma8soeyqrxje" path="res://assets/enemy_cat_template.png" id="1_wy6pf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5402j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_35nsm")
+"texture": ExtResource("1_wy6pf")
 }],
 "loop": true,
 "name": &"default",

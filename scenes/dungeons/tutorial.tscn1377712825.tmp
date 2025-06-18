@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvnndjm0mhi4r"]
+
+[ext_resource type="PackedScene" uid="uid://cckm72f74danp" path="res://scenes/characters/hero_cat.tscn" id="1_qr36t"]
+[ext_resource type="Script" uid="uid://dr0fpbdtrfdi1" path="res://scripts/camera_movement.gd" id="2_sfly1"]
+
+[node name="tutorial_dungeon" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.353395, 0.403912, 0.208996, 1)
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="HeroCat" parent="Entities" instance=ExtResource("1_qr36t")]
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("2_sfly1")
