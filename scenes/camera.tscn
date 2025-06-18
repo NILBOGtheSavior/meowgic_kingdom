@@ -6,5 +6,18 @@
 script = ExtResource("1_cvpoc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.25, 1.25)
 limit_smoothed = true
+
+[node name="Player" type="Marker2D" parent="Camera2D"]
+position = Vector2(-613, 295)
+
+[node name="EnemyMarkers" type="Node2D" parent="Camera2D"]
+
+[node name="Enemy1" type="Marker2D" parent="Camera2D/EnemyMarkers"]
+position = Vector2(548, 336)
+
+[node name="Enemy2" type="Marker2D" parent="Camera2D/EnemyMarkers"]
+position = Vector2(728, 415)
+
+[node name="Enemy3" type="Marker2D" parent="Camera2D/EnemyMarkers"]
+position = Vector2(398, 277)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0ljle48at61f"
-path="res://.godot/imported/roguelikeSheet_transparent.png-167063083a92dfaccfe5327a01bfce03.ctex"
+uid="uid://bfikxsek46osj"
+path="res://.godot/imported/slums.png-5b5a22724acfb04f8fc3b6f186c7c09a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/Spritesheet/roguelikeSheet_transparent.png"
-dest_files=["res://.godot/imported/roguelikeSheet_transparent.png-167063083a92dfaccfe5327a01bfce03.ctex"]
+source_file="res://assets/backgrounds/slums.png"
+dest_files=["res://.godot/imported/slums.png-5b5a22724acfb04f8fc3b6f186c7c09a.ctex"]
 
 [params]
 

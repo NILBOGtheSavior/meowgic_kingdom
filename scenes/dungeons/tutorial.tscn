@@ -2,51 +2,57 @@
 
 [ext_resource type="Script" uid="uid://b8a0vjd21u5x0" path="res://scripts/tutorial.gd" id="1_3nl3d"]
 [ext_resource type="PackedScene" uid="uid://cckm72f74danp" path="res://scenes/characters/hero_cat.tscn" id="1_qr36t"]
-[ext_resource type="PackedScene" uid="uid://bww7kvub3xrl2" path="res://scenes/dungeons/base_room.tscn" id="2_hni1e"]
 [ext_resource type="PackedScene" uid="uid://dl88qqi5kl3yi" path="res://scenes/camera.tscn" id="2_sfly1"]
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hni1e"]
-scenes/1/scene = ExtResource("2_hni1e")
-
-[sub_resource type="TileSet" id="TileSet_of2fq"]
-sources/0 = SubResource("TileSetScenesCollectionSource_hni1e")
+[ext_resource type="Texture2D" uid="uid://bfikxsek46osj" path="res://assets/backgrounds/slums.png" id="4_hni1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hni1e"]
-size = Vector2(3293, 371)
+size = Vector2(1863, 734)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of2fq"]
+size = Vector2(1526, 748.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xn2j3"]
+size = Vector2(3838, 205)
 
 [node name="tutorial_dungeon" type="Node2D"]
 script = ExtResource("1_3nl3d")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 35, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 102, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 169, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0)
-tile_set = SubResource("TileSet_of2fq")
+[node name="Walls" type="StaticBody2D" parent="."]
+visible = false
 
-[node name="Area2D" type="Area2D" parent="TileMapLayer"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Area2D"]
-position = Vector2(1642.5, 177.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(930.5, 368)
 shape = SubResource("RectangleShape2D_hni1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(3071, 355.25)
+shape = SubResource("RectangleShape2D_of2fq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1919, 1184.5)
+shape = SubResource("RectangleShape2D_xn2j3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 3840.0
+offset_bottom = 1080.0
+texture = ExtResource("4_hni1e")
 
 [node name="Entities" type="Node2D" parent="."]
 position = Vector2(120, 504)
-metadata/_edit_group_ = true
-
-[node name="HeroCat" parent="Entities" instance=ExtResource("1_qr36t")]
 
 [node name="EnemySpawnPoints" type="Node2D" parent="Entities"]
 
-[node name="Marker2D" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+[node name="Marker2D2" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+position = Vector2(1981, 202)
+
+[node name="Marker2D3" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+position = Vector2(3425, 314)
+
+[node name="HeroCat" parent="Entities" instance=ExtResource("1_qr36t")]
+position = Vector2(-298, -661)
+
+[node name="HeroSpawn" type="Marker2D" parent="Entities"]
+position = Vector2(499, 294)
 
 [node name="Camera" parent="." instance=ExtResource("2_sfly1")]
 position = Vector2(581, 314)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(225, 477)
-
-[node name="EnemySpawnPoints" type="Node2D" parent="."]
-
-[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(1696, 487)
-
-[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(2966, 501)
