@@ -53,8 +53,14 @@ position = Vector2(4909, 344)
 [node name="Player" parent="Entities" instance=ExtResource("4_of2fq")]
 position = Vector2(-120, -504)
 
+[node name="CharacterBody2D" parent="Entities/Player/Character" index="0"]
+max_speed = 500.0
+
 [node name="HeroSpawn" type="Marker2D" parent="Entities"]
 position = Vector2(499, 294)
 
 [node name="Camera" parent="." instance=ExtResource("2_sfly1")]
 position = Vector2(581, 314)
+
+[editable path="Entities/Player"]
+[editable path="Entities/Player/Character"]

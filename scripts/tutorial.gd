@@ -14,5 +14,5 @@ func _ready():
 		
 		var enemy = guard_scene.instantiate()
 		enemy.global_position = marker.global_position
-		enemy.player = player
+		#enemy.player = player
 		add_child(enemy)

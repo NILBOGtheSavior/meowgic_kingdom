@@ -7,6 +7,7 @@ var follow_enabled = true
 
 func _ready():
 	global_position = Vector2(960.0, 540.0)
+	connect("registered", Callable(self, "set_target"))
 
 func _physics_process(delta):
 	if follow_enabled and target:
@@ -15,3 +16,4 @@ func _physics_process(delta):
 
 func set_target(t):
 	target = t
+	print("target_set")

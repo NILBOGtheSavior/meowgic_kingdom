@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal registered
+
 @export var max_speed: float = 250.0
 @export var acceleration: float = 800.0
 @export var friction: float = 400.0
@@ -24,3 +26,6 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
 	move_and_slide()
+
+func _ready():
+	emit_signal("registered", self)
