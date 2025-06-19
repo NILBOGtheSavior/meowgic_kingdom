@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dmnnvcapsvudp"]
+
+[ext_resource type="Texture2D" uid="uid://xskjwusnoky3" path="res://assets/hero_cat_template.png" id="1_w6rgi"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w6rgi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

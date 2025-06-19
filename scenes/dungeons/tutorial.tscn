@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvnndjm0mhi4r"]
+[gd_scene load_steps=10 format=3 uid="uid://bvnndjm0mhi4r"]
 
 [ext_resource type="Script" uid="uid://b8a0vjd21u5x0" path="res://scripts/tutorial.gd" id="1_3nl3d"]
 [ext_resource type="PackedScene" uid="uid://dl88qqi5kl3yi" path="res://scenes/camera.tscn" id="2_sfly1"]
+[ext_resource type="PackedScene" uid="uid://cl1g8qoquf15k" path="res://scenes/characters/character.tscn" id="3_hni1e"]
 [ext_resource type="Texture2D" uid="uid://bfikxsek46osj" path="res://assets/backgrounds/slums.png" id="4_hni1e"]
-[ext_resource type="PackedScene" uid="uid://clsgbkr7ylb0k" path="res://scenes/characters/player.tscn" id="4_of2fq"]
+[ext_resource type="Script" uid="uid://cnahdk7jftg1p" path="res://scripts/characters/player.gd" id="4_of2fq"]
+[ext_resource type="Script" uid="uid://b3uwixb5vtc48" path="res://scripts/systems/combat_manager.gd" id="6_xn2j3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hni1e"]
 size = Vector2(2367, 711)
@@ -50,17 +52,27 @@ position = Vector2(2384, 286)
 [node name="Marker2D3" type="Marker2D" parent="Entities/EnemySpawnPoints"]
 position = Vector2(4909, 344)
 
-[node name="Player" parent="Entities" instance=ExtResource("4_of2fq")]
+[node name="Character" parent="Entities" instance=ExtResource("3_hni1e")]
 position = Vector2(-120, -504)
 
-[node name="CharacterBody2D" parent="Entities/Player/Character" index="0"]
+[node name="Body" parent="Entities/Character" index="0"]
+script = ExtResource("4_of2fq")
 max_speed = 500.0
+acceleration = 800.0
+friction = 400.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="HeroSpawn" type="Marker2D" parent="Entities"]
-position = Vector2(499, 294)
+position = Vector2(415, 324)
 
-[node name="Camera" parent="." instance=ExtResource("2_sfly1")]
+[node name="Systems" type="Node2D" parent="."]
+
+[node name="Camera" parent="Systems" instance=ExtResource("2_sfly1")]
+visible = false
 position = Vector2(581, 314)
 
-[editable path="Entities/Player"]
-[editable path="Entities/Player/Character"]
+[node name="Combat Manager" type="Node2D" parent="Systems"]
+script = ExtResource("6_xn2j3")
+
+[editable path="Entities/Character"]

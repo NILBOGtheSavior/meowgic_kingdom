@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends "res://scripts/characters/character.gd"
 
 signal registered
 
@@ -28,4 +28,5 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _ready():
+	add_to_group("player")
 	emit_signal("registered", self)
