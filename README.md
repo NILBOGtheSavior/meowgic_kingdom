@@ -1,6 +1,6 @@
 # Meowgic Kingdom
 
-![Meowgic Kingdom Icon](icon.svg)
+<img src="assets/icon.png" width=250>
 
 Welcome to **Meowgic Kingdom** — a 2D turn-based RPG where kittens harness ancient arcane powers, scale to god-tier strength, and face off against the tyrannical **Lion King** who rules the land with fire and fluff.
 
@@ -30,13 +30,14 @@ This is a solo indie dev project being built in Godot 4 with ❤️, claws, and 
 
 ## 📁 Project Structure
 
-meowgic-kingdom/
-├── assets/ # Sprites, backgrounds, textures
-├── scenes/ # .tscn scene files
-├── scripts/ # Game logic & GDScript
-├── builds/ # Exported executables
+```
+meowgic-kingdom/  
+├── assets/ # Sprites, backgrounds, textures  
+├── scenes/ # .tscn scene files  
+├── scripts/ # Game logic & GDScript  
+├── builds/ # Exported executables  
 └── README.md
-
+```
 
 ---
 
