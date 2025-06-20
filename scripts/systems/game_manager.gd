@@ -1,5 +1,5 @@
-extends Node2D
 class_name GameManager
+extends Node2D
 
 @onready var player = $Player
 @onready var camera = $Camera
@@ -17,3 +17,6 @@ func spawner():
 		var enemy = enemy_scene.instantiate()
 		enemy.global_position = marker.global_position
 		add_child(enemy)
+
+func engage_combat():
+	pass

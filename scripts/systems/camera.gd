@@ -1,5 +1,5 @@
-extends Camera2D
 class_name Camera
+extends Camera2D
 
 var target: Node2D
 
