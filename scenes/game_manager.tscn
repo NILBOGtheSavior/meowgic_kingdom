@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmhk3q0a5jlac"]
+
+[ext_resource type="Script" uid="uid://b2q8xcqxi3egf" path="res://scripts/systems/game_manager.gd" id="1_hwd4i"]
+[ext_resource type="PackedScene" uid="uid://dl88qqi5kl3yi" path="res://scenes/camera.tscn" id="2_udu3i"]
+[ext_resource type="PackedScene" uid="uid://bvnndjm0mhi4r" path="res://scenes/dungeons/tutorial.tscn" id="3_oo155"]
+[ext_resource type="PackedScene" uid="uid://c32i8mlrq22vm" path="res://scenes/characters/player.tscn" id="4_oo155"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_hwd4i")
+
+[node name="Camera" parent="." instance=ExtResource("2_udu3i")]
+
+[node name="tutorial_dungeon" parent="." instance=ExtResource("3_oo155")]
+
+[node name="Player" parent="." instance=ExtResource("4_oo155")]
+
+[editable path="Camera"]
+[editable path="tutorial_dungeon"]
+[editable path="Player"]

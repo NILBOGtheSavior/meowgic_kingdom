@@ -1,25 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://xegb7v85te33"]
+[gd_scene load_steps=5 format=3 uid="uid://e4311dg8tn8e"]
 
 [ext_resource type="PackedScene" uid="uid://cl1g8qoquf15k" path="res://scenes/characters/character.tscn" id="1_blu3w"]
 [ext_resource type="SpriteFrames" uid="uid://ciuf52wv2cdw5" path="res://resources/animation_sprites/guard.tres" id="2_nwhyh"]
-[ext_resource type="Script" uid="uid://dqkiy4vqd8jsr" path="res://scripts/characters/enemies/detection.gd" id="3_nwhyh"]
+[ext_resource type="Script" uid="uid://cpmgb2rkac0ht" path="res://scripts/characters/enemies/enemy.gd" id="2_qj54i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ue0f"]
-radius = 399.102
+[sub_resource type="CircleShape2D" id="CircleShape2D_blu3w"]
+radius = 298.027
 
-[node name="Enemy" type="Node2D"]
+[node name="enemy" instance=ExtResource("1_blu3w")]
+script = ExtResource("2_qj54i")
 
-[node name="Character" parent="." instance=ExtResource("1_blu3w")]
-
-[node name="Sprite" parent="Character/Body" index="1"]
+[node name="Sprite" parent="." index="1"]
 sprite_frames = ExtResource("2_nwhyh")
 
-[node name="DetectionRange" type="Area2D" parent="Character"]
-script = ExtResource("3_nwhyh")
+[node name="Area2D" type="Area2D" parent="." index="2"]
 
-[node name="DetectionCollider" type="CollisionShape2D" parent="Character/DetectionRange"]
-shape = SubResource("CircleShape2D_4ue0f")
-
-[connection signal="body_entered" from="Character/DetectionRange" to="Character/DetectionRange" method="_on_body_entered"]
-
-[editable path="Character"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_blu3w")

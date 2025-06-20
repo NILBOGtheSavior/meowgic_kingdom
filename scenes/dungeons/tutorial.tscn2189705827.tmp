@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvnndjm0mhi4r"]
+
+[ext_resource type="Script" uid="uid://b8a0vjd21u5x0" path="res://scripts/tutorial.gd" id="1_3nl3d"]
+[ext_resource type="PackedScene" uid="uid://dl88qqi5kl3yi" path="res://scenes/camera.tscn" id="2_sfly1"]
+[ext_resource type="PackedScene" uid="uid://cl1g8qoquf15k" path="res://scenes/characters/character.tscn" id="3_hni1e"]
+[ext_resource type="Texture2D" uid="uid://bfikxsek46osj" path="res://assets/backgrounds/slums.png" id="4_hni1e"]
+[ext_resource type="Script" uid="uid://cnahdk7jftg1p" path="res://scripts/characters/player.gd" id="4_of2fq"]
+[ext_resource type="Script" uid="uid://b3uwixb5vtc48" path="res://scripts/systems/combat_manager.gd" id="6_xn2j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of2fq"]
+size = Vector2(2548, 708.25)
+
+[node name="tutorial_dungeon" type="Node2D"]
+script = ExtResource("1_3nl3d")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 11520.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hni1e")
+stretch_mode = 2
+
+[node name="Environment" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment"]
+position = Vector2(3898, 358.125)
+shape = SubResource("RectangleShape2D_of2fq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment"]
+polygon = PackedVector2Array(5745, 68, 5384, 74, 5351, 485, 5620, 712, 5758, 719, 5760, 78)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Environment"]
+polygon = PackedVector2Array(-3, 715, 401, 717, 452, 714, 989, 715, 1031, 714, 1191, 715, 1192, 742, 1301, 743, 1316, 716, 1477, 715, 1500, 712, 1896, 713, 1911, 722, 2360, 721, 2416, 486, 2410, -8, -1, -1)
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2(120, 504)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="Entities"]
+
+[node name="Marker2D2" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+position = Vector2(2384, 286)
+
+[node name="Marker2D3" type="Marker2D" parent="Entities/EnemySpawnPoints"]
+position = Vector2(4909, 344)
+
+[node name="Character" parent="Entities" instance=ExtResource("3_hni1e")]
+position = Vector2(-120, -504)
+
+[node name="Body" parent="Entities/Character" index="0" node_paths=PackedStringArray("combat_manager")]
+script = ExtResource("4_of2fq")
+max_speed = 500.0
+acceleration = 800.0
+friction = 400.0
+combat_manager = NodePath("../../../Systems/Combat Manager")
+metadata/_edit_group_ = true
+
+[node name="HeroSpawn" type="Marker2D" parent="Entities"]
+position = Vector2(320, 449)
+
+[node name="Systems" type="Node2D" parent="."]
+
+[node name="Camera" parent="Systems" node_paths=PackedStringArray("camera") instance=ExtResource("2_sfly1")]
+position = Vector2(581, 314)
+camera = NodePath("Camera2D")
+camera_smoothing = null
+camera_bounds_min = null
+camera_bounds_max = null
+
+[node name="Combat Manager" type="Node2D" parent="Systems"]
+script = ExtResource("6_xn2j3")
+
+[editable path="Entities/Character"]
+[editable path="Systems/Camera"]

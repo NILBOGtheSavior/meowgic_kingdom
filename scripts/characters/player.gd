@@ -1,22 +1,22 @@
-extends "res://scripts/characters/character.gd"
+extends Character
 
-signal registered
+#signal registered
 
-@export var max_speed: float = 250.0
+@export var max_speed: float = 350.0
 @export var acceleration: float = 800.0
 @export var friction: float = 400.0
 
 func _physics_process(delta):
 	var input_dir = Vector2.ZERO
-
-	if Input.is_action_pressed("move_left"):
-		input_dir.x -= 1
-	if Input.is_action_pressed("move_right"):
-		input_dir.x += 1
-	if Input.is_action_pressed("move_up"):
-		input_dir.y -= 0.25
-	if Input.is_action_pressed("move_down"):
-		input_dir.y += 0.25
+	if not combat_manager or not combat_manager.combat_mode:
+		if Input.is_action_pressed("move_left"):
+			input_dir.x -= 1
+		if Input.is_action_pressed("move_right"):
+			input_dir.x += 1
+		if Input.is_action_pressed("move_up"):
+			input_dir.y -= 0.25
+		if Input.is_action_pressed("move_down"):
+			input_dir.y += 0.25
 
 	input_dir = input_dir.normalized()
 
@@ -29,4 +29,4 @@ func _physics_process(delta):
 
 func _ready():
 	add_to_group("player")
-	emit_signal("registered", self)
+	#emit_signal("registered", self)

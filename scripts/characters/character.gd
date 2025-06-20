@@ -4,6 +4,7 @@ class_name Character
 @onready var body = $Body
 @onready var sprite = $Body/AnimatedSprite2D
 
+@export var combat_manager: Node2D
 @export var texture_path: Resource  # Set this in the Inspector
 
 # Ability levels
@@ -12,6 +13,8 @@ class_name Character
 func _ready():
 	if texture_path:
 		sprite.texture = texture_path
+	if combat_manager == null:
+		combat_manager = get_node("/Systems/CombatManager")
 
 func _process(delta):
 	update_z_and_scale()

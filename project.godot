@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Meowgic Kingdom"
-run/main_scene="uid://bvnndjm0mhi4r"
+run/main_scene="uid://cmhk3q0a5jlac"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.501406, 0.501407, 0.501406, 1)
 boot_splash/fullsize=false
