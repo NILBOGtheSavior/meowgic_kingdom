@@ -13,6 +13,7 @@ script = ExtResource("1_hwd4i")
 [node name="tutorial_dungeon" parent="." instance=ExtResource("3_oo155")]
 
 [node name="Player" parent="." instance=ExtResource("4_oo155")]
+movement_enabled = true
 max_speed = 500.0
 
 [editable path="Camera"]

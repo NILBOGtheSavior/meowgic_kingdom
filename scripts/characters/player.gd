@@ -1,14 +1,14 @@
 extends Character
 
-#signal registered
-
+@export var movement_enabled = true
 @export var max_speed: float = 350.0
 @export var acceleration: float = 800.0
 @export var friction: float = 400.0
 
+
 func _physics_process(delta):
 	var input_dir = Vector2.ZERO
-	if not combat_manager or not combat_manager.combat_mode:
+	if movement_enabled:
 		if Input.is_action_pressed("move_left"):
 			input_dir.x -= 1
 		if Input.is_action_pressed("move_right"):
@@ -29,4 +29,3 @@ func _physics_process(delta):
 
 func _ready():
 	add_to_group("player")
-	#emit_signal("registered", self)

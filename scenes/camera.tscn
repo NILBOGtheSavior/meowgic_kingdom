@@ -34,6 +34,7 @@ shape = SubResource("SegmentShape2D_kod1s")
 position = Vector2(-613, 295)
 
 [node name="EnemyMarkers" type="Node2D" parent="."]
+visible = false
 
 [node name="Enemy1" type="Marker2D" parent="EnemyMarkers"]
 position = Vector2(548, 336)

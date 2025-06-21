@@ -15,11 +15,8 @@ var zoom_level = {
 @export var camera_bounds_min := Vector2(960, 540)
 @export var camera_bounds_max := Vector2(4800, 540)
 
-@onready var camera = $Camera2D
-
 func _ready():
 	global_position = Vector2(960.0, 540.0)
-	connect("registered", Callable(self, "set_target"))
 
 func _physics_process(delta):
 	if target:
@@ -27,10 +24,6 @@ func _physics_process(delta):
 		global_position = global_position.lerp(pos, camera_smoothing * delta)
 		var target_zoom = zoom_level.get(camera_mode, zoom_level["zoom_0"])
 		zoom = zoom.lerp(target_zoom, camera_smoothing * delta)
-	else:
-		print("Searching for target...")
-		var pos = target.global_position.clamp(camera_bounds_min, camera_bounds_max)
-		global_position = global_position.lerp(pos, camera_smoothing * delta)
 
 func set_target(t):
 	target = t

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cl1g8qoquf15k" path="res://scenes/characters/character.tscn" id="1_blu3w"]
 [ext_resource type="SpriteFrames" uid="uid://ciuf52wv2cdw5" path="res://resources/animation_sprites/guard.tres" id="2_nwhyh"]
-[ext_resource type="Script" uid="uid://cpmgb2rkac0ht" path="res://scripts/characters/enemies/enemy.gd" id="2_qj54i"]
+[ext_resource type="Script" uid="uid://cpmgb2rkac0ht" path="res://scripts/characters/enemy.gd" id="2_qj54i"]
 
 [sub_resource type="GDScript" id="GDScript_nwhyh"]
 script/source = "extends Area2D
