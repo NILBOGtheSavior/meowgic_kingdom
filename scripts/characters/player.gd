@@ -5,7 +5,6 @@ extends Character
 @export var acceleration: float = 800.0
 @export var friction: float = 400.0
 
-
 func _physics_process(delta):
 	var input_dir = Vector2.ZERO
 	if movement_enabled:
